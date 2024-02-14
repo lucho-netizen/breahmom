@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard-container {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .user-info {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .user-info span {
+            font-weight: bold;
+        }
+        .dashboard-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .dashboard-content {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .logout-btn {
+            background-color: #d9534f;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logout-btn:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <h2>Dashboard</h2>
+            <div class="user-info">
+                <span>Usuario:</span> John Doe<br>
+                <span>Email:</span> johndoe@example.com
+            </div>
+            <button class="logout-btn">Cerrar sesión</button>
+        </div>
+        <div class="main-content">
+            <h1 class="dashboard-title">Bienvenido a tu Dashboard</h1>
+            <div class="dashboard-content">
+                <!-- Contenido del Dashboard -->
+                <p>Aquí puedes agregar contenido impresionante para tu dashboard.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script JavaScript para cerrar sesión
+        document.querySelector('.logout-btn').addEventListener('click', function() {
+            // Realizar cualquier operación necesaria para cerrar sesión, como redirigir al usuario a la página de inicio de sesión
+            // window.location.href = '/logout';
+            alert('Cerrar sesión');
+        });
+    </script>
+</body>
+</html>
