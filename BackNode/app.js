@@ -41,12 +41,11 @@ app.post("/adduser", (req, res) => {
     correo,
     password,
     id_role = 2,
-    fecha = "2024-02-17 07:20:22",
+    fecha,
     estado = 1,
   } = req.body;
 
-  const sql =
-    "INSERT INTO usuario (nombre, apellido, tipo_documento, celular, identificacion, edad, peso, correo, password, id_role, fecha, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)";
+  const sql ="INSERT INTO usuario (nombre, apellido, tipo_documento, celular, identificacion, edad, peso, correo, password, id_role, fecha, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
   const values = [
     nombre,
     apellido,

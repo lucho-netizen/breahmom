@@ -26,6 +26,7 @@ function Adduser() {
   const [loading, setLoading] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [error, setError] = useState(null);
+  const [horaUser, setHoraUser] = useState("");
 
   // Función para validar la fortaleza de la contraseña
   function validatePasswordStrength(password) {
@@ -36,6 +37,12 @@ function Adduser() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    // const horauser = new Date();
+    // const fecha = horauser.toISOString().slice(0, 19).replace("T", " ");
+
+    const horauser = new Date();
+    const horaColombiana = new Date(horauser.getTime() - (5 * 60 * 60 * 1000)); // Restar 5 horas en milisegundos
+    const fecha = horaColombiana.toISOString().slice(0, 19).replace("T", " ");
 
     axios
       .post("http://127.0.0.1:5000/adduser", {
@@ -48,6 +55,7 @@ function Adduser() {
         peso,
         correo,
         password,
+        fecha,
       })
       .then((res) => {
         console.log(res.data);
@@ -114,7 +122,6 @@ function Adduser() {
                 className="form-control"
                 placeholder="nombre"
                 name="nombre"
-                id="nombre"
                 onChange={(e) => setNombre(e.target.value)}
                 required
               />
