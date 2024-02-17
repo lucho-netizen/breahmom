@@ -23,7 +23,7 @@ function Login() {
     setCorreo(userObject);
     setLoggedIn(true); // Set isLoggedIn to true on successful login
     document.getElementById("signInDiv").hidden = true;
-    window.location.href = "./dashboard";
+    window.location.href = "/dashboard";
   }
 
   // Cerrar Sesión
@@ -81,62 +81,64 @@ function Login() {
   }
 
   return (
-    <div className="wrapper">
-      <div className="inner">
-        <img
-          src={mujer}
-          alt=""
-          style={{ height: "360px" }}
-          className="image-1"
-        />
-        <form onSubmit={handleSubmit}>
-          <h3>Iniciar sesion</h3>
-          <div className="form-holder">
-            <span className="lnr lnr-user"></span>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Correo"
-              onChange={(e) => setCorreo(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-holder">
-            <span className="lnr lnr-lock"></span>
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              placeholder="Contraseña"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          {error && <p style={{ color: "red" }}>{error}</p>}
-          <button type="submit" disabled={loading}>
-            {loading ? "Cargando..." : "Iniciar Sesión"}
-          </button>
+    <>
+      <div className="wrapper">
+        <div className="inner">
+          <img
+            src={mujer}
+            alt=""
+            style={{ height: "360px" }}
+            className="image-1"
+          />
+          <form onSubmit={handleSubmit}>
+            <h3>Iniciar sesion</h3>
+            <div className="form-holder">
+              <span className="lnr lnr-user"></span>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Correo"
+                onChange={(e) => setCorreo(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-holder">
+              <span className="lnr lnr-lock"></span>
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                placeholder="Contraseña"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            {error && <p style={{ color: "red" }}>{error}</p>}
+            <button type="submit" disabled={loading}>
+              {loading ? "Cargando..." : "Iniciar Sesión"}
+            </button>
 
-          <div>
+            <div>
+              <br />
+              <center>
+                <a href="/adduser">
+                  <p>Aún no estás registrado?</p>
+                </a>
+              </center>
+            </div>
             <br />
             <center>
-              <a href="/adduser">
-                <p>Aún no estás registrado?</p>
-              </a>
+              <div id="signInDiv"></div>
+              <button onClick={handleGithubLogin}>
+                Iniciar sesión con GitHub
+              </button>
             </center>
-          </div>
-          <br />
-          <center>
-            <div id="signInDiv"></div>
-            <button onClick={handleGithubLogin}>
-              Iniciar sesión con GitHub
-            </button>
-          </center>
-        </form>
-        <img src={logo} alt="" className="image-2" />
+          </form>
+          <img src={logo} alt="" className="image-2" />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

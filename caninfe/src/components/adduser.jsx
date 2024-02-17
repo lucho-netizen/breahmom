@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/css/login.css";
 import login from "./login";
-
+import axios from "axios";
 import planta from "../assets/images/image-2.png";
 import mujer from "../assets/images/img.png";
 
@@ -14,11 +14,57 @@ function Adduser() {
   const [passwordStrengthMessageColor, setPasswordStrengthMessageColor] =
     useState("");
 
+  const [correo, setCorreo] = useState({});
+  const [password, setPassword] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [celular, setCelular] = useState("");
+  const [identificacion, setIdentificacion] = useState("");
+  const [edad, setEdad] = useState("");
+  const [peso, setPeso] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [tipo_documento, setTipo_documento] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [error, setError] = useState(null);
+
   // Función para validar la fortaleza de la contraseña
   function validatePasswordStrength(password) {
     const hasNumber = /\d/.test(password);
     const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
     return hasNumber && hasSpecialChar;
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    axios
+      .post("http://127.0.0.1:5000/adduser", {
+        nombre,
+        apellido,
+        tipo_documento,
+        celular,
+        identificacion,
+        edad,
+        peso,
+        correo,
+        password,
+      })
+      .then((res) => {
+        console.log(res.data);
+        setLoading(false);
+        setLoggedIn(true);
+      })
+      .catch((err) => {
+        console.error("Error en inicio de sesión:", err);
+        setError(
+          "Error en inicio de sesión. Por favor, verifica tus credenciales."
+        );
+        setLoading(false);
+      });
+
+    if (loggedIn) {
+      window.location.href = "/dashboard";
+    }
   }
 
   // Función para manejar el evento onBlur en el campo de confirmación de contraseña
@@ -45,6 +91,10 @@ function Adduser() {
     }
   }
 
+  useEffect(() => {
+    document.title = "Register";
+  }, []);
+
   return (
     <>
       <title>Sign Up</title>
@@ -54,11 +104,7 @@ function Adduser() {
         <div className="inner">
           <img src={mujer} alt="" className="image-1" />
 
-          <form
-            action="http://127.0.0.1:8000/register"
-            method="post"
-            encType="multipart/form-data"
-          >
+          <form onSubmit={handleSubmit}>
             <h3>Regístrese</h3>
 
             <div className="form-holder">
@@ -69,6 +115,7 @@ function Adduser() {
                 placeholder="nombre"
                 name="nombre"
                 id="nombre"
+                onChange={(e) => setNombre(e.target.value)}
                 required
               />
             </div>
@@ -81,6 +128,7 @@ function Adduser() {
                 placeholder="apellido"
                 name="apellido"
                 id="apellido"
+                onChange={(e) => setApellido(e.target.value)}
                 required
               />
             </div>
@@ -90,6 +138,7 @@ function Adduser() {
               <select
                 name="tipo_documento"
                 id="tipo_documento"
+                onChange={(e) => setTipo_documento(e.target.value)}
                 style={{
                   marginLeft: "50px",
                   borderLeft: "var(--size) solid transparent",
@@ -110,6 +159,7 @@ function Adduser() {
                 placeholder="Phone Number"
                 name="celular"
                 id="celular"
+                onChange={(e) => setCelular(e.target.value)}
               />
             </div>
 
@@ -121,6 +171,7 @@ function Adduser() {
                 placeholder="identificacion"
                 name="identificacion"
                 id="identificacion"
+                onChange={(e) => setIdentificacion(e.target.value)}
               />
             </div>
 
@@ -132,6 +183,7 @@ function Adduser() {
                 placeholder="Edad"
                 name="edad"
                 id="edad"
+                onChange={(e) => setEdad(e.target.value)}
               />
             </div>
 
@@ -143,6 +195,7 @@ function Adduser() {
                 placeholder="Peso"
                 name="peso"
                 id="peso"
+                onChange={(e) => setPeso(e.target.value)}
               />
             </div>
 
@@ -154,6 +207,7 @@ function Adduser() {
                 placeholder="Correo"
                 name="correo"
                 id="correo"
+                onChange={(e) => setCorreo(e.target.value)}
                 required
               />
             </div>
@@ -166,6 +220,7 @@ function Adduser() {
                 placeholder="Contraseña"
                 id="password"
                 name="password"
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>

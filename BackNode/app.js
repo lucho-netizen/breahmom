@@ -11,7 +11,6 @@ app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 // Ruta para manejar la solicitud de inicio de sesión
 app.post("/login", (req, res) => {
   const sql = "SELECT * FROM usuario WHERE correo = ? AND password = ?";
@@ -28,6 +27,50 @@ app.post("/login", (req, res) => {
       }
     }
   );
+});
+
+app.post("/adduser", (req, res) => {
+  const {
+    nombre,
+    apellido,
+    tipo_documento,
+    celular,
+    identificacion,
+    edad,
+    peso,
+    correo,
+    password,
+    id_role = 2,
+    fecha = "2024-02-17 07:20:22",
+    estado = 1,
+  } = req.body;
+
+  const sql =
+    "INSERT INTO usuario (nombre, apellido, tipo_documento, celular, identificacion, edad, peso, correo, password, id_role, fecha, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)";
+  const values = [
+    nombre,
+    apellido,
+    tipo_documento,
+    celular,
+    identificacion,
+    edad,
+    peso,
+    correo,
+    password,
+    id_role,
+    fecha,
+    estado,
+  ];
+
+  mysqlConnection.query(sql, values, (err, result) => {
+    if (err) {
+      console.error("Error executing MySQL query: ", err);
+      res.status(500).json({ message: "Error en el servidor" });
+      return;
+    }
+    console.log("Usuario registrado con éxito");
+    res.json({ message: "Usuario registrado con éxito" });
+  });
 });
 
 // Escuchar en el puerto 3000

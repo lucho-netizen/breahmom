@@ -29,7 +29,7 @@ const Dashboard = () => {
         rel="stylesheet"
         href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
       />
-
+      <body></body>
       <header>
         <ul className="menu">
           <li>
@@ -53,11 +53,6 @@ const Dashboard = () => {
         </ul>
       </header>
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <h1>Síntomas del cáncer de mama</h1>
 
       <p style={{ display: "flex", marginLeft: "50px", marginRight: "70px" }}>
