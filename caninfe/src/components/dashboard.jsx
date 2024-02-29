@@ -14,7 +14,10 @@ import img9 from "../assets/images/imagen9.png";
 import img10 from "../assets/images/imagen10.png";
 import logo from "../assets/images/logo.PNG";
 
+
+// Import Component
 import Footer from "./footer/footer";
+import Logout from "./logout/logout";
 
 
 //Import Menu
@@ -53,7 +56,7 @@ const Dashboard = () => {
             <a href="#/">Contacto</a>
           </li>
           <li>
-            <a href="/logout">Cerrar Sessión</a>
+           <Logout/>
           </li>
         </ul>
       </header>

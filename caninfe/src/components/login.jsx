@@ -29,11 +29,7 @@ function Login() {
     var user_email = window.localStorage.getItem(correo);
     console.log(user_email);
 
-    // if (user_email) {
-    //   window.location.href = "/dashboard";
-    // } else {
-    //   window.location.href = "/";
-    // }
+   
   }
 
   // Cerrar Sesión
