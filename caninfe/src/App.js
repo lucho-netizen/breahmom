@@ -7,16 +7,19 @@ import Dashboard from "./components/dashboard";
 import Callback from "./components/callback";
 import Chat from "./components/chat";
 import Adduser from "./components/adduser";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import PrivateRoute from "./components/PrivateRoutes/PrivatRoute";
 
 function App() {
+  const user = localStorage.getItem("user")
   return (
     <Router>
       <Switch>
         <Route exact path="/" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
+        <PrivateRoute path="/dashboard" component={Dashboard} />
         <Route path="/callback" component={Callback} />
-        <Route path="/chat" component={Chat} />
-        <Route path="/adduser" component={Adduser} />
+        <PrivateRoute path="/chat" component={Chat} />
+        <PrivateRoute path="/adduser" component={Adduser} />
         <Route path="/login" component={Login} />
       </Switch>
     </Router>

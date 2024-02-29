@@ -11,8 +11,8 @@
 
     <style>
       body {
-        background: linear-gradient(to bottom, #f2f2f2, #ffffff);
-        font-family: Arial, sans-serif;
+        font-family: "Arial";
+
         margin: 0;
         padding: 0;
         background-size: cover;
@@ -21,7 +21,7 @@
 
       /* Footer */
       footer {
-        background-color: #333333;
+        background-color: #accffe;
         color: #ffffff;
         padding: 20px;
         text-align: center;
@@ -39,7 +39,7 @@
       }
 
       footer a:hover {
-        color: #ff0000;
+        color: #0c0b0b;
       }
 
       .footer-logo {
@@ -65,6 +65,7 @@
         text-align: center;
         padding: 20px 0;
       }
+
       p {
         color: #666666;
         text-align: center;
@@ -77,19 +78,23 @@
       @media (max-width: 768px) {
         /* Estilos para pantallas pequeñas (responsive) */
         p {
-          font-size: 14px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+          font-size: 14px;
+          /* Ajusta el tamaño de fuente para pantallas pequeñas */
         }
       }
+
       h2 {
         color: #333333;
         font-size: 18px;
         margin-bottom: 10px;
       }
+
       p.definition {
         color: #666666;
         font-size: 14px;
         line-height: 1.5;
       }
+
       img {
         width: 200px;
         height: 200px;
@@ -97,13 +102,15 @@
         border-radius: 20%;
         margin-bottom: 10px;
       }
+
       a {
-        color: #333333;
+        color: #accffe;
         text-decoration: none;
         font-weight: bold;
       }
+
       a:hover {
-        color: #ff0000;
+        color: #accffe;
       }
 
       .cards-container {
@@ -113,10 +120,12 @@
         flex-direction: row-reverse;
         align-items: stretch;
       }
+
       .card {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Alinea los elementos al centro */
+        align-items: center;
+        /* Alinea los elementos al centro */
         margin: 20px;
         width: 300px;
         background-color: #ffffff;
@@ -127,19 +136,25 @@
         transition: transform 0.3s ease;
         cursor: pointer;
       }
+
       .card:hover {
         transform: scale(1.05);
       }
+
       .menu {
         list-style: none;
         padding: 0;
-        background: #092327;
-        width: 100%; /* Cambiado a 100% para que abarque toda la pantalla */
-        margin: 0; /* Eliminado el margen para que el menú esté pegado a los bordes */
-        position: fixed; /* Fijar el menú en la parte superior */
+        background-color: #accffe;
+        width: 100%;
+        /* Cambiado a 100% para que abarque toda la pantalla */
+        margin: 0;
+        /* Eliminado el margen para que el menú esté pegado a los bordes */
+        position: fixed;
+        /* Fijar el menú en la parte superior */
         top: 0;
         left: 0;
-        z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+        z-index: 1000;
+        /* Asegura que el menú esté por encima de otros elementos */
         transition: all 0.3s ease;
         text-align: center;
       }
@@ -150,7 +165,8 @@
         padding: 20px;
         display: block;
         width: 100%;
-        box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+        box-sizing: border-box;
+        /* Asegura que el padding no afecte el ancho total */
       }
 
       .menu li {
@@ -159,13 +175,14 @@
       }
 
       .menu li a:hover {
-        background: #ef8354;
+        background: #accffe;
       }
 
       @media (max-width: 768px) {
         /* Estilos para pantallas pequeñas (responsive) */
         .menu {
-          text-align: center; /* Centra los elementos en pantallas pequeñas */
+          text-align: center;
+          /* Centra los elementos en pantallas pequeñas */
         }
 
         .menu li {
@@ -189,15 +206,21 @@
 
     <br /><br /><br /><br /><br />
     <h1>Síntomas del cáncer de mama</h1>
-    <p style="display: contents; margin-left: 30px">
-      El cáncer de mama es una enfermedad que afecta principalmente a las
-      mujeres, aunque también puede afectar a los hombres. Aquí te presentamos
-      algunos de los síntomas más comunes del cáncer de mama y sus definiciones:
+    <p style="display: flex; margin-left: 50px; margin-right: 70px">
+      El cáncer de mama es una enfermedad en la cual las células de la mama se
+      multiplican sin control. Existen distintos tipos de cáncer de mama. El
+      tipo de cáncer de mama depende de qué células de la mama se vuelven
+      cancerosas. La mayoría de los cánceres de mama comienzan en los conductos
+      o en los lobulillos. El cáncer de mama puede diseminarse fuera de la mama
+      a través de los vasos sanguíneos y los vasos linfáticos. Cuando el cáncer
+      de mama se disemina a otras partes del cuerpo, se dice que ha hecho
+      metástasis. Aquí te presentamos algunos de los síntomas más comunes del
+      cáncer de mama y sus definiciones:
     </p>
     <div id="symptoms" class="cards-container">
       <div class="card">
         <img
-          src="../../static/css/img/imagen1.png"
+          src="../../static/css/images/imagen1.png"
           alt="Irritación o hundimientos en la piel de la mama"
         />
         <h2>Irritación o hundimientos en la piel de la mama</h2>
@@ -215,7 +238,7 @@
       </div>
       <div class="card">
         <img
-          src="../../static/css/img/imagen5.png"
+          src="../../static/css/images/imagen5.png"
           alt="Enrojecimiento o descamación en la zona del pezón o la mama"
         />
         <h2>Enrojecimiento o descamación en la zona del pezón o la mama</h2>
@@ -233,7 +256,7 @@
       </div>
       <div class="card">
         <img
-          src="../../static/css/img/imagen2.png"
+          src="../../static/css/images/imagen2.png"
           alt="Hundimiento del pezón o dolor en esa zona"
         />
         <h2>Hundimiento del pezón o dolor en esa zona</h2>
@@ -249,7 +272,7 @@
       </div>
       <div class="card">
         <img
-          src="../../static/css/img/imagen4.png"
+          src="../../static/css/images/imagen4.png"
           alt="Secreción del pezón, que no sea leche, incluso de sangre"
         />
         <h2>Secreción del pezón, que no sea leche, incluso de sangre</h2>
@@ -267,7 +290,7 @@
       </div>
       <div class="card">
         <img
-          src="../../static/css/img/imagen3.png"
+          src="../../static/css/images/imagen3.png"
           alt="Dolor en cualquier parte de la mama"
         />
         <h2>Dolor en cualquier parte de la mama</h2>
@@ -285,7 +308,7 @@
       </div>
       <div class="card">
         <img
-          src="../../static/css/img/imagen7.png"
+          src="../../static/css/images/imagen7.png"
           alt="Dolor en cualquier parte de la mama"
         />
         <h2>Aumento de la sensibilidad en la mama.</h2>
@@ -306,7 +329,7 @@
       </div>
       <div class="card">
         <img
-          src="../../static/css/img/imagen8.png"
+          src="../../static/css/images/imagen8.png"
           alt="Dolor en cualquier parte de la mama"
         />
 
@@ -325,7 +348,7 @@
 
       <div class="card">
         <img
-          src="../../static/css/img/imagen9.png"
+          src="../../static/css/images/imagen9.png"
           alt="Dolor en cualquier parte de la mama"
         />
         <h2>Cambio en el tamaño o la forma de la mama.</h2>
@@ -343,7 +366,7 @@
 
       <div class="card">
         <img
-          src="../../static/css/img/imagen10.png"
+          src="../../static/css/images/imagen10.png"
           alt="Dolor en cualquier parte de la mama"
         />
         <h2>Hinchazón de los ganglios linfáticos de la axila o el cuello.</h2>
@@ -365,7 +388,7 @@
 
       <div class="card">
         <img
-          src="../../static/css/img/imagen11.png"
+          src="../../static/css/images/imagen11.png"
           alt="Dolor en cualquier parte de la mama"
         />
         <h2>Sensación de ardor o hormigueo en la mama o el pezón</h2>
@@ -387,16 +410,18 @@
     <br /><br /><br /><br /><br /><br />
     <footer>
       <img
-        src="../../static/css/img/logo.PNG"
+        src="../../static/css/images/logo.PNG"
         alt="Logo del sitio web"
         class="footer-logo"
       />
-      <p>© 2023 BreastHub. Todos los derechos reservados.</p>
-      <p>
+      <p style="text-align: center">
+        © 2024 BreastHub. Todos los derechos reservados.
+      </p>
+      <p style="text-align: center">
         Desarrollado por
         <a href="https://www.tusitio.com" target="_blank">SoftDevCode S.A.S</a>
       </p>
-      <div class="footer-social-icons" style="background-color: #333333">
+      <div class="footer-social-icons" style="background-color: #accffe">
         <a href="https://www.facebook.com/" target="_blank"
           ><i class="facebook"></i
         ></a>

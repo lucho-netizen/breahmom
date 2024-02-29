@@ -4,13 +4,13 @@ import "../assets/css/login.css";
 import axios from "axios";
 import logo from "../assets/images/image-2.png";
 import mujer from "../assets/images/img.png";
-// import { Link } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 /* eslint-disable no-unused-vars */
 import adduser from "./adduser";
 
 function Login() {
-  const [correo, setCorreo] = useState({});
+  const [correo, setCorreo] = useState();
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -20,10 +20,20 @@ function Login() {
     console.log("Encoded JWT ID token: " + response.credential);
     var userObject = jwtDecode(response.credential);
     console.log(userObject);
-    setCorreo(userObject);
+    setCorreo(userObject.email);
     setLoggedIn(true); // Set isLoggedIn to true on successful login
+    window.localStorage.setItem("user", userObject.email);
     document.getElementById("signInDiv").hidden = true;
     window.location.href = "/dashboard";
+
+    var user_email = window.localStorage.getItem(correo);
+    console.log(user_email);
+
+    // if (user_email) {
+    //   window.location.href = "/dashboard";
+    // } else {
+    //   window.location.href = "/";
+    // }
   }
 
   // Cerrar Sesión
@@ -49,7 +59,7 @@ function Login() {
     });
 
     google.accounts.id.prompt();
-  }, []);
+  });
 
   function handleSubmit(event) {
     event.preventDefault();

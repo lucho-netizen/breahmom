@@ -27,6 +27,8 @@ function Adduser() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [error, setError] = useState(null);
   const [horaUser, setHoraUser] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
 
   // Función para validar la fortaleza de la contraseña
   function validatePasswordStrength(password) {
@@ -268,6 +270,7 @@ function Adduser() {
               </a>
             </div>
           </form>
+          {errorMessage && <p>{errorMessage}</p>}
 
           <img src={planta} alt="" className="image-2" />
         </div>

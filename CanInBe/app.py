@@ -1,4 +1,6 @@
 # from pandas import pd as pd
+from datetime import datetime
+
 from fastapi import Depends, FastAPI, HTTPException, Request, Form
 from config.db_config import get_db_connection
 from models.user_model import User, Login, add_user
@@ -76,6 +78,7 @@ async def register(request: Request,
                    correo: str = Form(...),
                    password: str = Form(...),
                    # ID del rol con un valor predeterminado de 1
+                   estado: int = Form(1), 
                    id_role: int = Form(1)):
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -89,11 +92,17 @@ async def register(request: Request,
             return JSONResponse(content={"msg": msg})
 
         else:
+
+            fecha = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+
+            print(fecha)
+
             cursor.execute("""INSERT INTO usuario (nombre, apellido, 
                                tipo_documento, celular, identificacion,
-                               edad, peso, correo, password, id_role) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
+                               edad, peso, correo, password, id_role, fecha, estado) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
                            (nombre, apellido, tipo_documento, celular,
-                            identificacion, edad, peso, correo, password, id_role))
+                            identificacion, edad, peso, correo, password, id_role, fecha, estado))
 
             conn.commit()
             html_address = "./templates/user/informacion.html"
@@ -115,6 +124,7 @@ async def ai():
 
 
 # #Prediction case
+# Commentado por prueba.
 
 # from sklearn.model_selection import train_test_split
 # from sklearn.neighbors import KNeighborsClassifier

@@ -14,7 +14,12 @@ import img9 from "../assets/images/imagen9.png";
 import img10 from "../assets/images/imagen10.png";
 import logo from "../assets/images/logo.PNG";
 
+import Footer from "./footer/footer";
+
+
 //Import Menu
+
+
 
 // eslint-disable-next-line no-unused-vars
 import chat from "./chat";
@@ -274,34 +279,8 @@ const Dashboard = () => {
       <br />
       <br />
       <br />
-      <footer>
-        <img src={logo} alt="Logo del sitio web" className="footer-logo" />
-        <p className="footer" style={{ textAlign: "center" }}>
-          © 2024 BreastHub. Todos los derechos reservados.
-        </p>
-        <p className="footer" style={{ textAlign: "center" }}>
-          Desarrollado por{" "}
-          <span>
-            <a href="https://www.tusitio.com" target="_blank">
-              SoftDevCode S.A.S
-            </a>
-          </span>
-        </p>
-        <div className="footer-social-icons">
-          <a href="https://www.facebook.com/" target="_blank">
-            <i className="facebook"></i>
-          </a>
-          <a href="https://www.twitter.com/tusitio" target="_blank">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a href="https://www.instagram.com/tusitio" target="_blank">
-            <i className="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/tunombre" target="_blank">
-            <i className="fab fa-linkedin-in"></i>
-          </a>
-        </div>
-      </footer>
+     <Footer/>
+
     </>
   );
 };

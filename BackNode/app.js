@@ -45,30 +45,52 @@ app.post("/adduser", (req, res) => {
     estado = 1,
   } = req.body;
 
-  const sql ="INSERT INTO usuario (nombre, apellido, tipo_documento, celular, identificacion, edad, peso, correo, password, id_role, fecha, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-  const values = [
-    nombre,
-    apellido,
-    tipo_documento,
-    celular,
-    identificacion,
-    edad,
-    peso,
-    correo,
-    password,
-    id_role,
-    fecha,
-    estado,
-  ];
+  // Consulta SQL para verificar si el correo ya está registrado
+  const checkEmailQuery = "SELECT COUNT(*) AS count FROM usuario WHERE correo = ?";
+  const checkEmailValues = [correo];
 
-  mysqlConnection.query(sql, values, (err, result) => {
+  mysqlConnection.query(checkEmailQuery, checkEmailValues, (err, rows) => {
     if (err) {
       console.error("Error executing MySQL query: ", err);
       res.status(500).json({ message: "Error en el servidor" });
       return;
     }
-    console.log("Usuario registrado con éxito");
-    res.json({ message: "Usuario registrado con éxito" });
+
+    const emailCount = rows[0].count;
+
+    if (emailCount > 0) {
+      res.send("El correo ya está registrado");
+      res.render("tu_pagina_con_formulario", { errorMessage: "El correo ya está registrado." });
+
+      return;
+    }
+
+    // Si el correo no está registrado, procede con la inserción del nuevo usuario
+    const insertUserQuery = "INSERT INTO usuario (nombre, apellido, tipo_documento, celular, identificacion, edad, peso, correo, password, id_role, fecha, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    const insertUserValues = [
+      nombre,
+      apellido,
+      tipo_documento,
+      celular,
+      identificacion,
+      edad,
+      peso,
+      correo,
+      password,
+      id_role,
+      fecha,
+      estado,
+    ];
+
+    mysqlConnection.query(insertUserQuery, insertUserValues, (err, result) => {
+      if (err) {
+        console.error("Error executing MySQL query: ", err);
+        res.status(500).json({ message: "Error en el servidor" });
+        return;
+      }
+      console.log("Usuario registrado con éxito");
+      res.json({ message: "Usuario registrado con éxito" });
+    });
   });
 });
 
