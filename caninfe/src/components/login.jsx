@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import "../assets/css/login.css";
+import "../assets/css/icons.css";
 import axios from "axios";
 import logo from "../assets/images/image-2.png";
 import mujer from "../assets/images/img.png";
 // import { useHistory } from "react-router-dom";
 
-/* eslint-disable no-unused-vars */
 import adduser from "./adduser";
 
 function Login() {
@@ -28,8 +28,6 @@ function Login() {
 
     var user_email = window.localStorage.getItem(correo);
     console.log(user_email);
-
-   
   }
 
   // Cerrar Sesión

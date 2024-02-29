@@ -12,54 +12,22 @@ import img7 from "../assets/images/imagen7.png";
 import img8 from "../assets/images/imagen8.png";
 import img9 from "../assets/images/imagen9.png";
 import img10 from "../assets/images/imagen10.png";
-import logo from "../assets/images/logo.PNG";
 
 
 // Import Component
 import Footer from "./footer/footer";
-import Logout from "./logout/logout";
 
 
 //Import Menu
 
-
-
-// eslint-disable-next-line no-unused-vars
-import chat from "./chat";
+import Nav from "./nav/nav";
 
 //Content
 
 const Dashboard = () => {
   return (
     <>
-      <link rel="icon" href={logo} />
-      <link
-        rel="stylesheet"
-        href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-      />
-      <body></body>
-      <header>
-        <ul className="menu">
-          <li>
-            <a href="#/">Inicio</a>
-          </li>
-          <li>
-            <a href="chat">Chats</a>
-          </li>
-          <li>
-            <a href="#/">Servicios</a>
-          </li>
-          <li>
-            <a href="#/">Acerca De</a>
-          </li>
-          <li>
-            <a href="#/">Contacto</a>
-          </li>
-          <li>
-           <Logout/>
-          </li>
-        </ul>
-      </header>
+    <Nav/>
 
       <h1>Síntomas del cáncer de mama</h1>
 
@@ -282,8 +250,7 @@ const Dashboard = () => {
       <br />
       <br />
       <br />
-     <Footer/>
-
+      <Footer />
     </>
   );
 };

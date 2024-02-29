@@ -19,7 +19,7 @@ function App() {
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <Route path="/callback" component={Callback} />
         <PrivateRoute path="/chat" component={Chat} />
-        <PrivateRoute path="/adduser" component={Adduser} />
+        <Route path="/adduser" component={Adduser} />
         <Route path="/login" component={Login} />
       </Switch>
     </Router>

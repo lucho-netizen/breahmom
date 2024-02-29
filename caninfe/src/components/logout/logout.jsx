@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 const Logout = () => {
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleLogout = () => {
     localStorage.removeItem("user");
