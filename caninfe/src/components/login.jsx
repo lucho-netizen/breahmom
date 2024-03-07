@@ -64,6 +64,7 @@ function Login() {
         console.log(res.data);
         setLoading(false);
         setLoggedIn(true);
+        localStorage.setItem("user", correo)
       })
       .catch((err) => {
         console.error("Error en inicio de sesión:", err);

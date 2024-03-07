@@ -29,6 +29,9 @@ app.post("/login", (req, res) => {
   );
 });
 
+//Add-User 
+
+
 app.post("/adduser", (req, res) => {
   const {
     nombre,
@@ -93,6 +96,17 @@ app.post("/adduser", (req, res) => {
     });
   });
 });
+
+
+
+
+
+
+
+
+
+
+
 
 // Escuchar en el puerto 3000
 app.listen(5000, () => {
